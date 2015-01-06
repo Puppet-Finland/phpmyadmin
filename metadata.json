@@ -1,0 +1,13 @@
+{
+  "name": "puppetfinland-phpmyadmin",
+  "version": "0.1.0",
+  "author": "Puppet-Finland team",
+  "license": "BSD license",
+  "summary": "Setup phpmyadmin",
+  "source": "https://github.com/Puppet-Finland/phpmyadmin.git",
+  "project_page": "https://github.com/Puppet-Finland/phpmyadmin",
+  "dependencies": [
+    { "name": "puppetfinland/os", "version_requirement": ">= 0.5.0" },
+    { "name": "puppetfinland/mysql", "version_requirement": ">= 0.5.0" },
+  ]
+}
