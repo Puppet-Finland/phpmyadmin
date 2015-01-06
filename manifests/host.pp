@@ -18,6 +18,8 @@
 #   given ipv4 and ipv6 addresses. Typically this needs to be 'ALL PRIVILEGES' 
 #   for phpmyadmin to be of much use, but the default value is 'USAGE' to err on 
 #   the safe side.
+# [*database*]
+#   Database to grant access to.
 # [*password*]
 #   Password for the 'pma' user.
 #
@@ -27,6 +29,7 @@ class phpmyadmin::host
     $allow_address_ipv4='127.0.0.1',
     $allow_address_ipv6='::1',
     $privileges='USAGE',
+    $database,
     $password
 
 ) inherits phpmyadmin::params
@@ -38,6 +41,7 @@ class phpmyadmin::host
     mysql::grant { "phpmyadmin-pma-${allow_address_ipv4}":
         user => 'pma',
         password => $password,
+        database => $database,
         host => "${allow_address_ipv4}",
         privileges => $privileges,
     }
@@ -45,6 +49,7 @@ class phpmyadmin::host
     mysql::grant { "phpmyadmin-pma-${allow_address_ipv6}":
         user => 'pma',
         password => $password,
+        database => $database,
         host => "${allow_address_ipv6}",
         privileges => $privileges,
     }
